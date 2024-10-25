@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'magic-school',
     loadChildren: () =>
-      import('./D&D/magic-school/magic-school.component').then(
+      import('./D&D/magic-school/magic-school.module').then(
         (m) => m.MagicSchoolModule
       ),
   },
@@ -24,6 +24,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MagicSchoolModule,
   ],
-  bootstrap: [AppComponent],
+  // bootstrap: [AppComponent]
 })
 export class AppModule {}
