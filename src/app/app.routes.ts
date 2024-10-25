@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'magic-school',
     loadChildren: () =>
-      import('./D&D/magic-school/magic-school.component').then(
+      import('./D&D/magic-school/magic-school.module').then(
         (m) => m.MagicSchoolModule
       ),
   },
