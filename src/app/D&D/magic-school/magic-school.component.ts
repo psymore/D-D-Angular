@@ -1,4 +1,3 @@
-// src/app/magic-school/magic-school.component.ts
 import { Component, OnInit } from '@angular/core';
 import { MagicSchoolService } from './magic-school.service';
 import { MagicSchool } from './_model/magic-school.model';
@@ -9,17 +8,22 @@ import { MagicSchool } from './_model/magic-school.model';
   styleUrls: ['./magic-school.component.scss'],
 })
 export class MagicSchoolComponent implements OnInit {
-  magicSchool: MagicSchool | undefined;
+  abjurationSchool: MagicSchool | null = null;
 
   constructor(private magicSchoolService: MagicSchoolService) {}
 
   ngOnInit(): void {
-    this.fetchMagicSchool('abjuration'); // Fetching 'abjuration' as an example
+    this.fetchAbjurationSchool();
   }
 
-  fetchMagicSchool(index: string): void {
-    this.magicSchoolService.getMagicSchool(index).subscribe((data) => {
-      this.magicSchool = data;
-    });
+  fetchAbjurationSchool(): void {
+    this.magicSchoolService.getAbjurationSchool().subscribe(
+      (data) => {
+        this.abjurationSchool = data;
+      },
+      (error) => {
+        console.error('Error fetching Abjuration magic school:', error);
+      }
+    );
   }
 }

@@ -1,5 +1,8 @@
-<div *ngIf="magicSchool">
-    <h2>{{ magicSchool.name }}</h2>
-    <p *ngFor="let desc of magicSchool.desc">{{ desc }}</p>
-  </div>
-  
+<h2>Abjuration Magic School</h2>
+<div *ngIf="abjurationSchool">
+  <p>Name: {{ abjurationSchool.name }}</p>
+  <p>Description: {{ abjurationSchool.desc }}</p>
+</div>
+<div *ngIf="!abjurationSchool">
+  <p>Loading...</p>
+</div>

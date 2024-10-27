@@ -1,12 +1,7 @@
-// src/app/app.module.ts
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { MagicSchoolModule } from './D&D/magic-school/magic-school.module';
+// src/app/app.routes.ts
+import { Routes } from '@angular/router';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'magic-school',
     loadChildren: () =>
@@ -14,16 +9,5 @@ const routes: Routes = [
         (m) => m.MagicSchoolModule
       ),
   },
+  { path: '', redirectTo: '/magic-school', pathMatch: 'full' }, // Default route
 ];
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes),
-    MagicSchoolModule,
-  ],
-  bootstrap: [AppComponent],
-})
-export class AppModule {}

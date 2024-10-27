@@ -1,29 +1,20 @@
-// src/app/app.module.ts
+// src/app/app.module.ts (Optional, if you have other modules to include)
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { MagicSchoolModule } from './D&D/magic-school/magic-school.module';
-
-const routes: Routes = [
-  {
-    path: 'magic-school',
-    loadChildren: () =>
-      import('./D&D/magic-school/magic-school.module').then(
-        (m) => m.MagicSchoolModule
-      ),
-  },
-];
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component'; // Import the standalone AppComponent
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
-    MagicSchoolModule,
+    // Remove RouterModule as it will be provided in main.ts
   ],
-  // bootstrap: [AppComponent]
+  providers: [HttpClientModule],
+  declarations: [
+    // No declarations needed for standalone components
+  ],
+  // bootstrap: [AppComponent], // Removed as we're using bootstrapApplication
 })
 export class AppModule {}
