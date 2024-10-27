@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MagicSchoolService } from './magic-school.service';
-import { MagicSchool } from './_model/magic-school.model';
 
 @Component({
   selector: 'app-magic-school',
@@ -8,21 +7,21 @@ import { MagicSchool } from './_model/magic-school.model';
   styleUrls: ['./magic-school.component.scss'],
 })
 export class MagicSchoolComponent implements OnInit {
-  abjurationSchool: MagicSchool | null = null;
+  magicSchools: any[] = []; // Array to hold all magic schools
 
   constructor(private magicSchoolService: MagicSchoolService) {}
 
   ngOnInit(): void {
-    this.fetchAbjurationSchool();
+    this.fetchAllMagicSchools(); // Fetch data on component load
   }
 
-  fetchAbjurationSchool(): void {
-    this.magicSchoolService.getAbjurationSchool().subscribe(
+  fetchAllMagicSchools(): void {
+    this.magicSchoolService.getAllMagicSchools().subscribe(
       (data) => {
-        this.abjurationSchool = data;
+        this.magicSchools = data; // Store the fetched magic school data
       },
       (error) => {
-        console.error('Error fetching Abjuration magic school:', error);
+        console.error('Error fetching magic schools:', error);
       }
     );
   }
