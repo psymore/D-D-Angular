@@ -20,7 +20,7 @@ This is an Angular frontend project that fetches and displays information about 
 
 When you hover over a card, it flips to reveal the description of the magic school.
 
-![Magic School Viewer](path-to-your-screenshot.png)
+![Magic School Viewer](![image](https://github.com/user-attachments/assets/8f941b7f-6b09-4248-b27e-702cbca9a795))
 
 ## Setup and Installation
 
@@ -45,6 +45,7 @@ When you hover over a card, it flips to reveal the description of the magic scho
     ng serve
     The app will be running at http://localhost:4200/.
 
+```
 src/
 │
 ├── app/
